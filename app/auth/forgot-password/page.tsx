@@ -1,10 +1,10 @@
     import Image from 'next/image';
     import Link from 'next/link';
 
-    export default function LoginPage() {
+    export default function ForgotPasswordPage() {
     return (
         <div className="min-h-screen flex bg-gray-100">
-        {/* Left Side - Login Form */}
+        {/* Left Side - Forgot Password Form */}
         <div className="w-full md:w-1/2 flex items-center justify-center p-10 bg-white">
             <div className="max-w-md w-full space-y-6">
             <div className="flex flex-col items-center">
@@ -15,51 +15,43 @@
                     <div className="font-bold">MADINATUL QURAN</div>
                 </div>
                 </div>
-    
+
                 <h2 className="text-2xl font-bold text-center text-gray-800 mt-4">
-                Login to Your Account
+                Forgot Password
                 </h2>
-                <p className="text-sm text-gray-500">Select method to login</p>
+                <p className="text-sm text-gray-500 text-center">
+                Enter your email to receive password reset instructions
+                </p>
             </div>
-    
-            {/* Google Login */}
-            <button className="w-full flex items-center justify-center gap-3 border border-gray-300 rounded-lg py-2 hover:shadow transition">
-                <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google" className="w-5 h-5" />
-                <span className="text-sm font-medium text-gray-700">Sign In with Google</span>
-            </button>
-    
-            <div className="text-center text-gray-500 text-sm">or Login with</div>
-    
-            {/* Login Form */}
+
             <form className="space-y-4">
                 <input
                 type="email"
-                placeholder="Gmail"
+                placeholder="Your Gmail"
                 className="w-full border border-gray-300 rounded px-4 py-2 text-sm text-black focus:outline-none focus:ring-2 focus:ring-green-500"
-                />
-                <input
-                type="password"
-                placeholder="Password"
-                className="w-full border border-gray-300 rounded px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
                 />
                 <button
                 type="submit"
                 className="w-full bg-green-700 text-white font-semibold py-2 rounded hover:bg-green-800 transition"
                 >
-                Login
+                Send Reset Link
                 </button>
-                <a href="/auth/forgot-password" className='text-sm text-black'>Forgot password ?</a>
             </form>
 
-
+            <div className="text-center text-sm text-gray-600">
+                Remembered your password?{' '}
+                <Link href="/auth/Login" className="text-green-700 hover:underline">
+                Login here
+                </Link>
+            </div>
             </div>
         </div>
 
-        {/* Right Side - Image */}
+        {/* Right Side - Illustration */}
         <div className="hidden md:flex w-1/2 bg-green-900 items-center justify-center p-8">
             <Image
-            src="/assets/bro.png" // Pastikan file ini ada di /public
-            alt="Login Illustration"
+            src="/assets/amico.png" // Ganti dengan ilustrasi yang sesuai jika ada
+            alt="Forgot Password Illustration"
             width={500}
             height={500}
             className="rounded-xl drop-shadow-2xl"
@@ -68,4 +60,3 @@
         </div>
     );
     }
-
