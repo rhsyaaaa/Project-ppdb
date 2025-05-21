@@ -1,4 +1,5 @@
-            import Image from 'next/image';
+            import Button from '@/components/Button';
+import Image from 'next/image';
 
             export default function Home() {
             return (
@@ -12,10 +13,14 @@
                 </div>
 
                 {/* Tombol Login Admin */}
-                <div className="absolute top-4 right-4">
-                    <button className="bg-green-200 text-green-900 font-semibold py-1 px-3 rounded-full text-sm shadow-md">
-                    Login Admin
-                    </button>
+                            <div className="absolute top-4 right-4">
+                                <a
+                  href="/auth/Login"
+                  className="bg-green-200 text-green-900 font-semibold py-1 px-3 rounded-full text-sm shadow-md inline-block"
+                >
+                  Login Admin
+                    </a>
+
                 </div>
 
                 {/* Hero Section */}

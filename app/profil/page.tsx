@@ -98,7 +98,7 @@
                 <div className="text-right">
                 <button
                     type="submit"
-                    className="bg-green-600 hover:bg-green-700 text-white font-bold px-6 py-2 rounded-lg transition shadow-lg"
+                    className="bg-green-600 hover:bg-green-900 text-white font-bold px-6 py-2 rounded-lg transition shadow-lg"
                 >
                     💾 Simpan Perubahan
                 </button>
