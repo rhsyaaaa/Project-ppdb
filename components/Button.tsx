@@ -1,37 +1,60 @@
-    import React from "react";
-    import clsx from "clsx";
+import clsx from "clsx";
+// import ClipLoader from "react-spinners/ClipLoader";
 
-    interface ButtonProps {
-    children: React.ReactNode;
-    color?: "green" | "blue" | "yellow" | "red";
-    onClick?: () => void;
-    href?: string;
-    }
+type Variant = "solid" | "outline";
+type ColorSchema = "blue" | "red" | "green";
 
-    export default function Button({ children, color = "blue", onClick, href }: ButtonProps) {
-    const baseClass =
-        "px-4 py-2 rounded text-sm font-semibold transition duration-200 cursor-pointer shadow";
+interface ButtonProps {
+  title: string;
+  isDisabled?: boolean;
+  variant?: Variant;
+  colorSchema: ColorSchema;
+  width?: string;
+  height?: string;
+  isLoading?: boolean;
+}
 
-    const colorClass = {
-        green: "bg-green-600 text-white hover:bg-green-700",
-        blue: "bg-blue-600 text-white hover:bg-blue-700",
-        yellow: "bg-yellow-500 text-white hover:bg-yellow-600",
-        red: "bg-red-600 text-white hover:bg-red-700",
-    };
+const Button: React.FC<
+  ButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement>
+> = ({
+  title,
+  isDisabled = false,
+  variant = "solid",
+  colorSchema,
+  width = "2/3",
+  height = "md",
+  isLoading = false,
+  ...props
+}) => {
+  return (
+    <button
+      {...props}
+      disabled={isDisabled}
+      className={clsx(` rounded border w-24  capitalize`, {
+        "bg-blue-500 text-white": colorSchema === "blue" && variant === "solid",
+        "border-blue-500 text-blue-500":
+          colorSchema === "blue" && variant === "outline",
+        "bg-red-500 text-white": colorSchema === "red" && variant === "solid",
+        "border-red-500 text-red-500 ":
+          colorSchema === "red" && variant === "outline",
+        "bg-green-500 text-white":
+          colorSchema === "green" && variant === "solid",
+        "border-green-500 text-green-500":
+          colorSchema === "green" && variant === "outline",
+        "opacity-25": isDisabled,
+        "w-24": width === "md",
+        "w-full": width === "full",
+        "h-8": width === "sm",
+        "h-12": width === "md",
+      })}
+    >
+      {isLoading ? (
+        title
+      ) : (
+       title
+      )}
+    </button>
+  );
+};
 
-    const className = clsx(baseClass, colorClass[color]);
-
-    if (href) {
-        return (
-        <a href={href} className={className}>
-            {children}
-        </a>
-        );
-    }
-
-    return (
-        <button onClick={onClick} className={className}>
-        {children}
-        </button>
-    );
-    }
+export default Button;

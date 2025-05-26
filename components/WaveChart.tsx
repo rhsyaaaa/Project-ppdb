@@ -12,8 +12,8 @@ export default function WaveChart() {
   return (
     <Card>
       <CardContent>
-        <p className="text-gray-600 mb-2">Pendaftar per Gelombang</p>
-        <ResponsiveContainer width="100%" height={200}>
+        <p className="text-gray-600 mb-2 text-lg font-semibold mb-4 text-center text-black">Pendaftar per Gelombang</p>
+        <ResponsiveContainer width="100%" height={350}>
           <BarChart data={data}>
             <XAxis dataKey="name" />
             <YAxis allowDecimals={false} />
