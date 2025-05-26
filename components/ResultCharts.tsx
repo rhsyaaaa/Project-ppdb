@@ -12,7 +12,7 @@
     export default function ResultChart() {
     return (
         <div className="bg-white rounded-lg shadow p-4">
-        <h2 className="text-lg font-semibold mb-2">Status Kelulusan</h2>
+        <h2 className="text-lg font-semibold mb-2 text-black">Status Kelulusan</h2>
         <div className="flex justify-center">
             <PieChart width={300} height={200}>
             <Pie
