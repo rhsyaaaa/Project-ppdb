@@ -1,4 +1,4 @@
-    "use client";
+"use client";
 
     import React from "react";
     import Image from "next/image";
@@ -12,6 +12,7 @@
     ShieldCheck,
     UserCircle,
     LogOut,
+    PlusCircle,
     } from "lucide-react";
 import { signOut } from "next-auth/react";
 
@@ -25,6 +26,8 @@ import { signOut } from "next-auth/react";
         { label: "Pengumuman", href: "/pengumuman", icon: <Megaphone size={18} /> },
         { label: "Admin Panitia", href: "/admin-panitia", icon: <ShieldCheck size={18} /> },
         { label: "Profil", href: "/profil", icon: <UserCircle size={18} /> },
+        { label: "Tambah Pertanyaan", href: "/question", icon: <PlusCircle size={18} /> },
+        { label: "Cek Kelulusan", href: "/cek-lulus", icon: <CheckCircle size={18} /> }, // <-- Tambahkan ini
     ];
 
     const handleLogout = () => {

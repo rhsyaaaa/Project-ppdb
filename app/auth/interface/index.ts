@@ -19,4 +19,6 @@ export interface LoginResponse extends BaseResponseSuccess {
   data: User;
 }
  
- 
+ export interface ProfileResponse extends BaseResponseSuccess {
+  data: User;
+}

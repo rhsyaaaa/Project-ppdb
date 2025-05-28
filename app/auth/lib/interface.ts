@@ -4,8 +4,8 @@ import Swal from "sweetalert2";
 import { axiosClient } from "@/lib/axiosClient";
 import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation"; // gunakan ini di App Router
-import { LoginPayload, LoginResponse } from "../interface";
-import { useMutation } from "@tanstack/react-query";
+import { LoginPayload, LoginResponse, ProfileResponse } from "../interface";
+import { useMutation, useQuery } from "@tanstack/react-query";
 
 const useAuthModule = () => {
   const toastError = (message: string) => {
@@ -36,6 +36,23 @@ const useAuthModule = () => {
     return axiosClient.post("/auth/login", payload).then((res) => res.data);
   };
 
+   const getProfile = async (): Promise<ProfileResponse> => {
+    return axiosClient.get("/auth/profile").then((res) => res.data);
+  };
+ 
+
+  const useProfile = () => {
+    const { data, isLoading, isFetching } = useQuery<ProfileResponse>({
+      queryKey: ["/auth/profile"],
+      queryFn: () => getProfile(),
+      select: (response: ProfileResponse) => response,
+      staleTime: 1000 * 60 * 60,
+      refetchInterval: 1000 * 60 * 60,
+      refetchOnWindowFocus: false,
+    });
+
+    return { data, isLoading, isFetching };
+  };
   const useLogin = () => {
     const router = useRouter(); // dipindahkan ke sini
     const { data: session } = useSession(); // dipindahkan ke sini
@@ -70,7 +87,7 @@ const useAuthModule = () => {
     return mutate;
   };
 
-  return { useLogin };
+  return { useLogin, useProfile};
 };
 
 export default useAuthModule;
