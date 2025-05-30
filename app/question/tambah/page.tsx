@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
@@ -40,7 +42,7 @@ export default function TambahPertanyaanPage() {
     <div className="grid grid-cols-12 min-h-screen bg-gradient-to-b from-green-100 to-white">
       <Sidebar />
       <main className="col-span-10 p-10 bg-white text-gray-800 rounded-lg shadow-md mx-6 my-6">
-        <h2 className="text-2xl font-bold mb-6">Tambah Pertanyaan</h2>
+        <h2 className="text-2xl font-bold mb-6">Tambah Soal</h2>
         <form onSubmit={handleSubmit} className="max-w-xl space-y-6">
           <div>
             <label className="block font-semibold mb-1">Pertanyaan</label>

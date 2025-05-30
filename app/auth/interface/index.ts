@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-object-type */
 import { BaseResponseSuccess } from "@/lib/axiosClient";
 
 interface User {

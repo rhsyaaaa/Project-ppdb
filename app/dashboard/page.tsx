@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
 import dynamic from "next/dynamic";
@@ -51,14 +53,14 @@ export default function DashboardAdmin() {
 
     const jenisKelamin = {
       lakiLaki: parseInt(
-        jenisKelaminArray.find((item: any) => item.jenisKelamin === "Laki-laki")?.total || "0"
+        jenisKelaminArray.find((item: any) => item.jenisKelamin === "Laki-Laki")?.total || "0"
       ),
       perempuan: parseInt(
         jenisKelaminArray.find((item: any) => item.jenisKelamin === "Perempuan")?.total || "0"
       ),
     };
-
-    setSummary({
+console.log(jenisKelamin,'jn');
+    setSummary({ 
       totalPendaftar: data.totalPendaftar,
       totalVerifikasi: data.totalVerifikasi,
       totalWawancaraHariIni: data.totalWawancaraHariIni,

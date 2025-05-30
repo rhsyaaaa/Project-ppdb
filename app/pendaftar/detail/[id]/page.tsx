@@ -1,3 +1,5 @@
+/* eslint-disable @next/next/no-img-element */
+/* eslint-disable @next/next/no-html-link-for-pages */
 import { notFound } from "next/navigation";
 import { axiosClient } from "@/lib/axiosClient";
 import Sidebar from "@/components/Sidebar";
